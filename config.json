@@ -2,8 +2,7 @@
       "client": {
         "name": "ASCH",
         "logo": "images/asch-logo.png",
-        "headerTitle": "ASCH. Aplicaciones del Sistema de Gestión de Calidad.",
-        "heroTitle": "ASCH. Aplicaciones del Sistema de Gestión de Calidad.",
+        "headerTitle": "Aplicaciones del Sistema de Gestión de Calidad",
         "heroDescription": "Acceso centralizado a las principales aplicaciones desarrolladas para la operación, seguimiento y mejora continua de los procesos."
       },
       "credit": {
@@ -22,7 +21,7 @@
           "logo": "images/siri-logo.png",
           "name": "SIRI",
           "title": "Sistema Integrado de Reportes Diarios",
-          "description": "...",
+          "description": "Plataforma de Generación y Distribución de Reportes Diarios de Obra",
           "link": "https://siri.asch.com.do"
         },
         {
