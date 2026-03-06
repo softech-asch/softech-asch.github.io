@@ -1,0 +1,43 @@
+{
+      "client": {
+        "name": "ASCH",
+        "logo": "images/asch-logo.png",
+        "headerTitle": "ASCH. Aplicaciones del Sistema de Gestión de Calidad.",
+        "heroTitle": "ASCH. Aplicaciones del Sistema de Gestión de Calidad.",
+        "heroDescription": "Acceso centralizado a las principales aplicaciones desarrolladas para la operación, seguimiento y mejora continua de los procesos."
+      },
+      "credit": {
+        "label": "Softech Projections",
+        "link": "https://github.com/vamj809"
+      },
+      "apps": [
+        {
+          "logo": "images/asap-logo.png",
+          "name": "ASAP",
+          "title": "Aplicación SAP",
+          "description": "Aplicación de integración con SAP para procesos de gestión, consulta operativa y automatización empresarial.",
+          "link": "https://asap.asch.com.do"
+        },
+        {
+          "logo": "images/siri-logo.png",
+          "name": "SIRI",
+          "title": "Sistema Integrado de Reportes Diarios",
+          "description": "...",
+          "link": "https://siri.asch.com.do"
+        },
+        {
+          "logo": "images/clas-logo.png",
+          "name": "CLAS",
+          "title": "Clasificación y Almacenamiento Seguro",
+          "description": "Gestion Documental de Plantillas Automatizadas",
+          "link": "https://pmo-asch.vercel.app"
+        },
+        {
+          "logo": "images/hito-logo.png",
+          "name": "HITO",
+          "title": "Hoja de Información de Trámites y Operaciones",
+          "description": "Gestión Documental Controlada del Sistema de Gestión de Calidad",
+          "link": "https://apps.powerapps.com/play/e/default-51c350ac-6347-4262-8182-0e0980a67ed5/a/206567a0-1adc-48a5-9575-a4ebe6db8a28"
+        }
+      ]
+    }

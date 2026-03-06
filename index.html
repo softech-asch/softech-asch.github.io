@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCH · Aplicaciones del Sistema de Gestión de Calidad</title>
+  <meta name="description" content="Portal estático de aplicaciones desarrolladas para ASCH." />
+  <style>
+    :root {
+      --accent: #dc2626;
+      --accent-dark: #b91c1c;
+      --bg: #f5f5f5;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --muted-soft: #94a3b8;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --content-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      min-height: 100vh;
+      padding: 32px 20px 40px;
+    }
+
+    .page {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+      border: 1px solid var(--border);
+      border-top: 6px solid var(--accent);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 32px 22px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .brand-logo-wrap {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      box-shadow: 0 10px 24px rgba(220, 38, 38, 0.24);
+      overflow: hidden;
+    }
+
+    .brand-logo { width: 100%; height: 100%; object-fit: cover; }
+
+    .brand-copy { min-width: 0; }
+    .brand-name {
+      margin: 0;
+      font-size: clamp(1.85rem, 2vw, 2.35rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .brand-subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero {
+      padding: 54px 32px 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid #fecaca;
+      border-radius: 999px;
+      background: #fff1f2;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.65;
+    }
+
+    .apps-section {
+      padding: 8px 32px 40px;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .app-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+      border-color: #fecaca;
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      border-radius: 22px 22px 0 0;
+      background: linear-gradient(90deg, var(--accent) 0%, #fb7185 100%);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .app-card:hover::before { opacity: 1; }
+
+    .app-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .app-logo-wrap {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 88px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+    }
+
+    .app-logo { width: 100%; height: 100%; object-fit: cover; }
+
+    .app-title-wrap {
+      min-width: 0;
+      padding-top: 4px;
+    }
+
+    .app-name {
+      margin: 0;
+      font-size: clamp(1.65rem, 2vw, 2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .app-subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .app-description {
+      margin: 0;
+      color: #334155;
+      font-size: 1.04rem;
+      line-height: 1.7;
+      min-height: 5.2em;
+    }
+
+    .app-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: gap 0.18s ease, color 0.18s ease;
+    }
+
+    .app-link:hover { gap: 14px; color: var(--accent-dark); }
+
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 32px 24px;
+    }
+
+    .credit {
+      color: #9ca3af;
+      font-size: 0.76rem;
+      letter-spacing: 0.01em;
+    }
+
+    .credit a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 920px) {
+      .apps-grid { grid-template-columns: 1fr; }
+      .hero, .apps-section { padding-left: 24px; padding-right: 24px; }
+      .topbar, .footer { padding-left: 24px; padding-right: 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 16px 10px 22px; }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 18px;
+      }
+      .hero {
+        padding: 34px 18px 20px;
+        text-align: left;
+      }
+      .hero p { margin-left: 0; margin-right: 0; }
+      .apps-section { padding: 6px 18px 22px; }
+      .footer {
+        justify-content: flex-start;
+        padding: 0 18px 18px;
+      }
+      .app-card { padding: 18px; }
+      .app-head { align-items: center; }
+      .app-logo-wrap {
+        width: 68px;
+        height: 68px;
+        flex-basis: 68px;
+      }
+      .app-name { font-size: 1.5rem; }
+      .app-description { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <main class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-logo-wrap">
+            <img id="client-logo" class="brand-logo" alt="Logo de ASCH" src="images/asch-logo.png" />
+          </div>
+          <div class="brand-copy">
+            <h1 id="client-name" class="brand-name">ASCH</h1>
+            <p id="header-title" class="brand-subtitle">Aplicaciones del Sistema de Gestión de Calidad.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">Portafolio de aplicaciones</div>
+        <h2 id="hero-title">ASCH. Aplicaciones del Sistema de Gestión de Calidad.</h2>
+        <p id="hero-description">Acceso centralizado a las principales aplicaciones desarrolladas para la operación, seguimiento y mejora continua de los procesos.</p>
+      </section>
+
+      <section class="apps-section">
+        <div id="apps-grid" class="apps-grid"></div>
+      </section>
+
+      <footer class="footer">
+        <div class="credit">by <a id="credit-link" href="https://github.com/" target="_blank" rel="noreferrer">Softech Projections</a></div>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module">
+    //const config = JSON.parse(document.getElementById('site-config').textContent);
+    const config = await fetch('config.json').then(r => r.json());
+    const clientLogo = document.getElementById('client-logo');
+    const clientName = document.getElementById('client-name');
+    const headerTitle = document.getElementById('header-title');
+    const heroTitle = document.getElementById('hero-title');
+    const heroDescription = document.getElementById('hero-description');
+    const creditLink = document.getElementById('credit-link');
+    const appsGrid = document.getElementById('apps-grid');
+
+    clientLogo.src = config.client.logo;
+    clientLogo.alt = `Logo de ${config.client.name}`;
+    clientName.textContent = config.client.name;
+    headerTitle.textContent = config.client.headerTitle;
+    heroTitle.textContent = config.client.heroTitle;
+    heroDescription.textContent = config.client.heroDescription;
+    creditLink.textContent = config.credit.label;
+    creditLink.href = config.credit.link;
+
+    appsGrid.innerHTML = config.apps.map(app => `
+      <article class="app-card">
+        <div class="app-head">
+          <div class="app-logo-wrap">
+            <img class="app-logo" src="${app.logo}" alt="Logo de ${app.name}" loading="lazy" />
+          </div>
+          <div class="app-title-wrap">
+            <h3 class="app-name">${app.name}</h3>
+            <p class="app-subtitle">${app.title}</p>
+          </div>
+        </div>
+        <p class="app-description">${app.description}</p>
+        <a class="app-link" href="${app.link}" target="_blank" rel="noreferrer">Ir a la aplicación <span aria-hidden="true">→</span></a>
+      </article>
+    `).join('');
+  </script>
+</body>
+</html>
