@@ -299,7 +299,6 @@
 
       <section class="hero">
         <div class="eyebrow">Portafolio de aplicaciones</div>
-        <!-- <h2 id="hero-title">Aplicaciones del Sistema de Gestión de Calidad</h2> -->
         <p id="hero-description">Acceso centralizado a las principales aplicaciones desarrolladas para la operación, seguimiento y mejora continua de los procesos.</p>
       </section>
 
@@ -319,7 +318,6 @@
     const clientLogo = document.getElementById('client-logo');
     const clientName = document.getElementById('client-name');
     const headerTitle = document.getElementById('header-title');
-    const heroTitle = document.getElementById('hero-title');
     const heroDescription = document.getElementById('hero-description');
     const creditLink = document.getElementById('credit-link');
     const appsGrid = document.getElementById('apps-grid');
@@ -328,7 +326,6 @@
     clientLogo.alt = `Logo de ${config.client.name}`;
     clientName.textContent = config.client.name;
     headerTitle.textContent = config.client.headerTitle;
-    heroTitle.textContent = config.client.heroTitle;
     heroDescription.textContent = config.client.heroDescription;
     creditLink.textContent = config.credit.label;
     creditLink.href = config.credit.link;
